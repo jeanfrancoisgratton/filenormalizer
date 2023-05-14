@@ -10,8 +10,14 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 
-var version = "0.100 (2023.05.11), J.F.Gratton <jean-francois@famillegratton.net>"
-var verboseMode = false
+var (
+	version      = "0.100 (2023.05.11), J.F.Gratton <jean-francois@famillegratton.net>"
+	uppercase    = false
+	lowercase    = false
+	verboseMode  = false
+	normalize    = false
+	stripPattern = []string{}
+)
 
 var rootCmd = &cobra.Command{
 	Use:     "filenormalizer [directory]",
@@ -20,13 +26,13 @@ var rootCmd = &cobra.Command{
 	Long: `Rename files in named directory in parameter.
 If no directory is specified, the current directory will be used.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		var target string
+		var targets = []string{}
 		if len(args) == 0 {
-			target = "."
+			targets[0] = "."
 		} else {
-			target = args[0]
+			targets = args
 		}
-		executor.Rename(verboseMode, target)
+		executor.Rename(verboseMode, normalize, uppercase, lowercase, stripPattern, targets)
 	},
 }
 
@@ -42,5 +48,8 @@ func Execute() {
 func init() {
 
 	rootCmd.PersistentFlags().BoolVarP(&verboseMode, "verbose", "v", false, "verbose output")
-	//rootCmd.PersistentFlags().StringVarP(&helpers.HypervisorUser, "hvmuser", "u", "root", "Default hypervisor user")
+	rootCmd.PersistentFlags().BoolVarP(&uppercase, "uppercase", "u", false, "rename file to uppercase")
+	rootCmd.PersistentFlags().BoolVarP(&lowercase, "lowercase", "l", false, "rename file to lowercase")
+	rootCmd.PersistentFlags().BoolVarP(&lowercase, "normalize", "n", false, "normalize filenames")
+	rootCmd.PersistentFlags().StringSliceVarP(&stripPattern, "strip", "s", []string{}, "Strip pattern from file names")
 }
