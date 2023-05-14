@@ -57,6 +57,7 @@ strip %{_prefix}/bin/%{_binaryname}
 
 
 %changelog
-* Sun May 14 2023 builder <builder@famillegratton.net> 1.10.00-2
+
+* Sun May 14 2023 builder <builder@famillegratton.net> 0.100-2
 - new package built with tito
 
