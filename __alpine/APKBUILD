@@ -2,7 +2,7 @@
 # PACKAGER: APK Builder <builder@famillegratton.net>
 pkgname=filenormalizer
 pkgver=0.100
-pkgrel=0
+pkgrel=1
 pkgdir=/data/packages
 builddir="$startdir/src/BUILD"
 pkgdesc="Filesystem tool to rename files"
