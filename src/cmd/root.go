@@ -11,7 +11,7 @@ import (
 // rootCmd represents the base command when called without any subcommands
 
 var (
-	version      = "0.100 (2023.05.11), J.F.Gratton <jean-francois@famillegratton.net>"
+	version      = "1.000 (2023.08.03), J.F.Gratton <jean-francois@famillegratton.net>"
 	uppercase    = false
 	lowercase    = false
 	verboseMode  = false
