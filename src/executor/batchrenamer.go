@@ -18,6 +18,10 @@ version			date			comments
 
 func Rename(verbose bool, normalize bool, uppercase bool, lowercase bool,
 	stripPatterns []string, targets []string) {
+	if !normalize && !uppercase && !lowercase && len(stripPatterns) == 0 {
+		fmt.Println("You need to specify at least one of the following flags: -l, -u, -n or -s")
+		os.Exit(0)
+	}
 	// We fetch the current directory, in case we need to return to it eventually
 	originalDir, _ := os.Getwd()
 

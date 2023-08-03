@@ -2,7 +2,7 @@
 %define _build_id_links none
 %define _name   filenormalizer
 %define _prefix /opt
-%define _version 1.000
+%define _version 1.001
 %define _rel 0
 %define _arch x86_64
 %define _binaryname fnormalizer
@@ -57,6 +57,10 @@ strip %{_prefix}/bin/%{_binaryname}
 
 
 %changelog
+* Thu Aug 03 2023 builder <builder@famillegratton.net> 1.001-0
+- Fixed issue where no flags are passed (jean-francois@famillegratton.net)
+- Fixed shell issue for NAS (jean-francois@famillegratton.net)
+
 * Thu Aug 03 2023 builder <builder@famillegratton.net> 1.000-0
 - Bumped to Go 1.20.6 and prod release (jean-francois@famillegratton.net)
 - Bumped go pkgs (jean-francois@famillegratton.net)
