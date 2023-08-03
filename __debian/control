@@ -1,5 +1,5 @@
 Package: filenormalizer
-Version: 1.000
+Version: 1.001
 Architecture: amd64
 Maintainer: J.F.Gratton <nexus@famillegratton.net>
 Description: Batch rename files in directory
