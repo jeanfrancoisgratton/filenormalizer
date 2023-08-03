@@ -11,7 +11,7 @@ import (
 // rootCmd represents the base command when called without any subcommands
 
 var (
-	version      = "1.000 (2023.08.03), J.F.Gratton <jean-francois@famillegratton.net>"
+	version      = "1.001 (2023.08.03), J.F.Gratton <jean-francois@famillegratton.net>"
 	uppercase    = false
 	lowercase    = false
 	verboseMode  = false
@@ -28,7 +28,7 @@ If no directory is specified, the current directory will be used.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var targets = []string{}
 		if len(args) == 0 {
-			targets[0] = "."
+			targets = append(targets, ".")
 		} else {
 			targets = args
 		}
